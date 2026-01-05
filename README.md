@@ -46,12 +46,12 @@ API `/api/v1/personal-profile/{employeeId}/employee-information/1000` を呼び�
 
 1.  `pp_personal_profile_category_groups` — パネルグループ
 
-  目的：カテゴリをパネルにグループ化します（例：「基本情報」、「雇用情報」...）。
-  重要なフィールド：
-  • id: パネルID
-  • key: パネルキー（例：personal-information, employment, ...）
-  • is_use: 使用有無
-  • display_order: 表示順
+  目的：カテゴリをパネルにグループ化します（例：「基本情報」、「雇用情報」...）。  
+  重要なフィールド：  
+  • id: パネルID  
+  • key: パネルキー（例：personal-information, employment, ...）  
+  • is_use: 使用有無  
+  • display_order: 表示順  
 
   ```text
   +----------------------------------+--------------+
@@ -77,14 +77,14 @@ API `/api/v1/personal-profile/{employeeId}/employee-information/1000` を呼び�
   2.  `pp_personal_profile_categories` — カテゴリ
 
   目的：パネル内のカテゴリを定義し、実際のデータテーブルにマッピングします。
-  重要なフィールド：
-  • id: カテゴリID（例：1000）
-  • pp_personal_profile_category_group_id: FK → pp_personal_profile_category_groups.id
-  • key: カテゴリキー（例：basic, contact）
-  • table_name: データを格納するテーブル名（例：pp_employee_basics, pp_employee_employments）
-  • record_type: レコードタイプ（single または multiple）
-  • is_use: 使用有無
-  • options: JSON設定（例：ソート順、フィルター）
+  重要なフィールド：  
+  • id: カテゴリID（例：1000）  
+  • pp_personal_profile_category_group_id: FK → pp_personal_profile_category_groups.id  
+  • key: カテゴリキー（例：basic, contact）  
+  • table_name: データを格納するテーブル名（例：pp_employee_basics, pp_employee_employments）  
+  • record_type: レコードタイプ（single または multiple）  
+  • is_use: 使用有無  
+  • options: JSON設定（例：ソート順、フィルター）  
 
   ```text
   +---------------------------------------+--------------+
@@ -106,30 +106,30 @@ API `/api/v1/personal-profile/{employeeId}/employee-information/1000` を呼び�
   +---------------------------------------+--------------+
   ```
 
-  カテゴリID=1000の例：
-     id=1000
-     pp_personal_profile_category_group_id=1 (personal-information パネル)
-     key='basic'
-     table_name='pp_employee_basics'
-     record_type='single'
-     is_use=1
+  カテゴリID=1000の例：  
+     id=1000  
+     pp_personal_profile_category_group_id=1 (personal-information パネル)  
+     key='basic'  
+     table_name='pp_employee_basics'  
+     record_type='single'  
+     is_use=1  
 
   → カテゴリ1000は「personal-information」パネルに属し、データは `pp_employee_basics` テーブルにあり、singleタイプ（従業員あたり1レコード）です。
   ---
 
   3.  `pp_personal_profile_items` — 項目/フィールド
 
-  目的：カテゴリ内のフィールドを定義し、データテーブルの列にマッピングします。
-  重要なフィールド：
-  • id: 項目ID
-  • pp_personal_profile_category_id: FK → pp_personal_profile_categories.id
-  • key: 項目キー（例：last_name, first_name）
-  • table_name: データを格納するテーブル名（通常はカテゴリと同じ。異なる場合もあり）
-  • column_name: DB内の列名（例：last_name, first_name）
-  • data_type: データタイプ（text, number, date, select, file, employee-search, none）
-  • is_required_for_tenant: 必須かどうか
-  • display_order: 表示順
-  • options: JSON設定（例：select用のcode_type、ネスト用のparentId）
+  目的：カテゴリ内のフィールドを定義し、データテーブルの列にマッピングします。  
+  重要なフィールド：  
+  • id: 項目ID  
+  • pp_personal_profile_category_id: FK → pp_personal_profile_categories.id  
+  • key: 項目キー（例：last_name, first_name）  
+  • table_name: データを格納するテーブル名（通常はカテゴリと同じ。異なる場合もあり）  
+  • column_name: DB内の列名（例：last_name, first_name）  
+  • data_type: データタイプ（text, number, date, select, file, employee-search, none）  
+  • is_required_for_tenant: 必須かどうか  
+  • display_order: 表示順  
+  • options: JSON設定（例：select用のcode_type、ネスト用のparentId）  
 
   ```text
   +---------------------------------+----------------+
